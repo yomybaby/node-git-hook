@@ -8,11 +8,8 @@ var bodyParser = require('body-parser');
 var _s = require('underscore.string');
 var _ = require('underscore');
 
-// require('sugar');
-
 app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
-
 
 app.get('/*', function(req, res) {
   return res.send('Hello!');
@@ -26,7 +23,7 @@ app.post('/', function(req, res) {
   
   if(payload.canon_url.indexOf('bitbucket')>-1){ //bitbucket
     targetRepo = config.repository['bitbucket'][_s.trim(payload.repository.absolute_url,'/')];
-     console.log(targetRepo);
+    //console.log(targetRepo);
     if(targetRepo){  //branch, local, commands
       // console.log(payload);
       var shouldPull = _.find(payload.commits, function(commit){
@@ -48,24 +45,6 @@ app.post('/', function(req, res) {
 
     }
   }
- //  bburl = payload.canon_url + payload.repository.absolute_url;
- //  local = (_ref = config[bburl]) != null ? _ref.local : undefined;
- //  if (local && payload.commits.count(function(commit) {
- //    console.log(commit);
-	// return commit.branch == "develop";// /#deploy/.test(commit.message);
- //  })) {
- //    return exec('git pull', {
- //      cwd: local
- //    }, function(err, stdout, stderr) {
- //      if (err) {
- //        return res.send('deployment has been failed');
- //      } else {
-	// exec('chown -R www-data:www-data /var/www',{cwd:local});
- //        return res.send('ok');
- //      }
- //    });
- //  }
 });
 
 app.listen(10101, config.ip || '127.0.0.1');
-// console.log('Server Start!');
