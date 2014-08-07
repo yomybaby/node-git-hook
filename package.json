@@ -1,16 +1,21 @@
 {
-  "author": "Phillip Kovalev <twilightfeel@gmail.com> (http://github.com/kaero)",
-  "name": "bbcore",
-  "description": "BitBucket POST-hook handler",
+  "author": "Jong Eun Lee (http://github.com/yomybaby)",
+  "origin_author": "Phillip Kovalev <twilightfeel@gmail.com> (http://github.com/kaero)",
+  "name": "node-git-hook",
+  "description": "git POST-hook handler",
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "git@github.com:kaero/node-bbcore.git"
+    "url": "git@github.com:yomybaby/node-git-hook.git"
   },
-  "main": "./app.coffee",
+  "main": "./app.js",
   "dependencies": {
+    "body-parser": "^1.6.1",
+    "errorhandler": "^1.1.1",
+    "express": "*",
     "sugar": "*",
-    "express": "*"
+    "underscore": "^1.6.0",
+    "underscore.string": "^2.3.3"
   },
   "devDependencies": {},
   "optionalDependencies": {},
